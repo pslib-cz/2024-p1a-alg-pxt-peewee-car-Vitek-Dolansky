@@ -40,6 +40,6 @@ basic.forever(function () {
 
         //basic.showNumber(y)
 
-        basic.pause(30)
+        basic.pause(25)
     }
 )
