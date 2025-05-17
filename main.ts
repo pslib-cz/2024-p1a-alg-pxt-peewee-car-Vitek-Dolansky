@@ -17,13 +17,15 @@ radio.onReceivedValue(function (name, value) {
         y = value
     } else if (name === "drive") {
         canDrive = value === 1
+    } else if (name === "trim") {
+        trim = value
     }
 })
 
 basic.forever(function () {
     if (canDrive) {
-        let leftSpeed = x - y
-        let rightSpeed = x + y
+        let leftSpeed = x - y - trim
+        let rightSpeed = x + y + trim
 
         if (leftSpeed > 255) leftSpeed = 255
         if (leftSpeed < -255) leftSpeed = -255
