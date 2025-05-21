@@ -10,12 +10,16 @@ function setMotors(leftSpeed: number, rightSpeed: number) {
     PCAmotor.MotorRun(PCAmotor.Motors.M4, rightSpeed)
 }
 
+radio.onReceivedString(function(recievedString){
+let parts = recievedString.split(",")
+if (parts.length === 2) {
+    x = parseInt(parts[0])
+    y = parseInt(parts[1])
+}
+})
+
 radio.onReceivedValue(function (name, value) {
-    if (name === "x") {
-        x = value/1,75
-    } else if (name === "y") {
-        y = value
-    } else if (name === "drive") {
+    if (name === "drive") {
         canDrive = value === 1
     } else if (name === "trim") {
         trim = value
