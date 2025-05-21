@@ -12,7 +12,7 @@ function setMotors(leftSpeed: number, rightSpeed: number) {
 
 radio.onReceivedValue(function (name, value) {
     if (name === "x") {
-        x = value
+        x = value/1,75
     } else if (name === "y") {
         y = value
     } else if (name === "drive") {
